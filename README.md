@@ -1,6 +1,6 @@
 # DVWA Security Lab Report
 
-> **Author:** [Your Name]  
+> **Author:** Syed Muhammad Wajeeh Haider  
 > **Course:** Cybersecurity  
 > **Date:** March 2026  
 > **Environment:** Windows — Docker Desktop — DVWA (Damn Vulnerable Web Application)
