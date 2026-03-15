@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    restart: always
+    environment:
+      - PHP_XDEBUG_ENABLED=1
+    networks:
+      - dvwa_network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - dvwa
+    networks:
+      - dvwa_network
+
+networks:
+  dvwa_network:
+    driver: bridge
